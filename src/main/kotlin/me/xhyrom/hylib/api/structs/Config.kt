@@ -20,39 +20,43 @@ class Config(
         return raw.getString(path)
     }
 
-    fun getBoolean(path: String): Boolean? {
+    fun getStringList(path: String): List<String> {
+        return raw.getStringList(path)
+    }
+
+    fun getBoolean(path: String): Boolean {
         return raw.getBoolean(path)
     }
 
-    fun getDouble(path: String): Double? {
+    fun getDouble(path: String): Double {
         return raw.getDouble(path)
     }
 
-    fun getFloat(path: String): Float? {
+    fun getFloat(path: String): Float {
         return raw.getFloat(path)
     }
 
-    fun getInt(path: String): Int? {
+    fun getInt(path: String): Int {
         return raw.getInt(path)
     }
 
-    fun getLong(path: String): Long? {
+    fun getLong(path: String): Long {
         return raw.getLong(path)
     }
 
-    fun getShort(path: String): Short? {
+    fun getShort(path: String): Short {
         return raw.getShort(path)
     }
 
-    fun getByte(path: String): Byte? {
+    fun getByte(path: String): Byte {
         return raw.getByte(path)
     }
 
-    fun getChar(path: String): Char? {
+    fun getChar(path: String): Char {
         return raw.getChar(path)
     }
 
-    fun getNumber(path: String): Number? {
+    fun getNumber(path: String): Number {
         return raw.getNumber(path)
     }
 
