@@ -39,7 +39,6 @@ tasks.withType<ShadowJar> {
 
     relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
     relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
-    relocate("net.kyori", "me.xhyrom.hylib.libs.packetevents.net.kyori")
 
     exclude("LICENSE")
 }
@@ -53,7 +52,6 @@ tasks.register<ShadowJar>("buildApi") {
 
     relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
     relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
-    relocate("net.kyori", "me.xhyrom.hylib.libs.packetevents.net.kyori")
 
     exclude("LICENSE")
     exclude("kotlin/**")
