@@ -15,12 +15,17 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.codemc.org/repository/maven-public/")
+    maven("https://repo.codemc.io/repository/maven-snapshots/")
+    maven("https://oss.sonatype.org/content/groups/public/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+
     implementation("dev.jorel:commandapi-shade:8.5.1")
     implementation("dev.dejvokep:boosted-yaml:1.3")
+    implementation("com.github.retrooper.packetevents:spigot:2.0.0-SNAPSHOT")
+
     testImplementation(kotlin("test"))
 }
 
@@ -32,6 +37,10 @@ tasks.withType<ShadowJar> {
     relocate("dev.jorel.commandapi", "me.xhyrom.hylib.libs.commandapi")
     relocate("dev.dejvokep.boostedyaml", "me.xhyrom.hylib.libs.boostedyaml")
 
+    relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
+    relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
+    relocate("net.kyori", "me.xhyrom.hylib.libs.packetevents.net.kyori")
+
     exclude("LICENSE")
 }
 
@@ -41,6 +50,10 @@ tasks.register<ShadowJar>("buildApi") {
 
     relocate("dev.jorel.commandapi", "me.xhyrom.hylib.libs.commandapi")
     relocate("dev.dejvokep.boostedyaml", "me.xhyrom.hylib.libs.boostedyaml")
+
+    relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
+    relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
+    relocate("net.kyori", "me.xhyrom.hylib.libs.packetevents.net.kyori")
 
     exclude("LICENSE")
     exclude("kotlin/**")
