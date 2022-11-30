@@ -25,6 +25,7 @@ dependencies {
     implementation("dev.jorel:commandapi-shade:8.5.1")
     implementation("dev.dejvokep:boosted-yaml:1.3")
     implementation("com.github.retrooper.packetevents:spigot:2.0.0-SNAPSHOT")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
 
     testImplementation(kotlin("test"))
 }
@@ -36,6 +37,7 @@ tasks.test {
 tasks.withType<ShadowJar> {
     relocate("dev.jorel.commandapi", "me.xhyrom.hylib.libs.commandapi")
     relocate("dev.dejvokep.boostedyaml", "me.xhyrom.hylib.libs.boostedyaml")
+    relocate("org.bstats", "me.xhyrom.hylib.libs.bstats")
 
     relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
     relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
@@ -49,6 +51,7 @@ tasks.register<ShadowJar>("buildApi") {
 
     relocate("dev.jorel.commandapi", "me.xhyrom.hylib.libs.commandapi")
     relocate("dev.dejvokep.boostedyaml", "me.xhyrom.hylib.libs.boostedyaml")
+    relocate("org.bstats", "me.xhyrom.hylib.libs.bstats")
 
     relocate("com.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.api")
     relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")

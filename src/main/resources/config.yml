@@ -1,0 +1,5 @@
+# Send some metrics into bstats (https://bstats.org/plugin/bukkit/HyLib/16983)
+send-metrics: true
+
+# Please, don't modify this version. It's used for internal purposes.
+config-version: 1
