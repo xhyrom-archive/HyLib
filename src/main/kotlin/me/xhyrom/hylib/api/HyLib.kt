@@ -6,7 +6,7 @@ import me.xhyrom.hylib.api.managers.ConfigManager
 import me.xhyrom.hylib.api.managers.LanguageManager
 import org.bukkit.plugin.java.JavaPlugin
 
-class HyLib(val plugin: JavaPlugin) {
+class HyLib(plugin: JavaPlugin) {
     private val commandManager = CommandManager()
     private val configManager = ConfigManager()
     private val languageManager = LanguageManager()
