@@ -11,6 +11,7 @@ class CommandManager {
     private val raw = CommandAPICommand("hy")
         .withShortDescription("A HyLib provided command")
         .withFullDescription("Command for plugins powered by HyLib")
+        .withPermission("hy.admin")
         .executes(
             CommandExecutor { sender: CommandSender, _: Array<Any?>? ->
                 run {
