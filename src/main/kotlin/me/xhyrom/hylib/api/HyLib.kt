@@ -1,9 +1,6 @@
 package me.xhyrom.hylib.api
 
-import me.xhyrom.hylib.api.managers.BStatsManager
-import me.xhyrom.hylib.api.managers.CommandManager
-import me.xhyrom.hylib.api.managers.ConfigManager
-import me.xhyrom.hylib.api.managers.LanguageManager
+import me.xhyrom.hylib.api.managers.*
 import org.bukkit.plugin.java.JavaPlugin
 
 class HyLib(plugin: JavaPlugin) {
@@ -40,5 +37,10 @@ class HyLib(plugin: JavaPlugin) {
 
     fun getBStatsManager(): BStatsManager {
         return bStatsManager
+    }
+
+    // Shortcut?
+    fun getUtils(): UtilsManager {
+        return UtilsManager
     }
 }
