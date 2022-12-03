@@ -1,5 +1,8 @@
 package me.xhyrom.hylib.api.managers
 
+import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.CommandAPIArgumentType
+
 object UtilsManager {
     /**
      * I dont want to support legacy formatting bruh
@@ -29,5 +32,21 @@ object UtilsManager {
             .replace("&n", "<underline>")
             .replace("&o", "<italic>")
             .replace("&r", "<reset>")
+    }
+
+    fun formatCommandArguments(command: CommandAPICommand): String {
+        return command.arguments.joinToString(" ") {
+            return@joinToString when (it.argumentType) {
+                CommandAPIArgumentType.PRIMITIVE_STRING -> "<#34abeb>"
+                CommandAPIArgumentType.PRIMITIVE_GREEDY_STRING -> "<#2f90c4>"
+                CommandAPIArgumentType.PRIMITIVE_INTEGER -> "<#ebc934>"
+                CommandAPIArgumentType.PRIMITIVE_FLOAT -> "<#c7a43c>"
+                CommandAPIArgumentType.PRIMITIVE_DOUBLE -> "<#c7923c>"
+                CommandAPIArgumentType.PRIMITIVE_LONG -> "<#c7743c>"
+                CommandAPIArgumentType.PRIMITIVE_BOOLEAN -> "<#c73c5a>"
+                CommandAPIArgumentType.LITERAL -> "<gray>"
+                else -> "<#8f2856>"
+            } + it.nodeName
+        }
     }
 }

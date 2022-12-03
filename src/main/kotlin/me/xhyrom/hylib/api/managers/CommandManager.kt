@@ -3,6 +3,7 @@ package me.xhyrom.hylib.api.managers
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.CommandAPIArgumentType
 import dev.jorel.commandapi.executors.CommandExecutor
+import me.xhyrom.hylib.api.managers.UtilsManager.formatCommandArguments
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.command.CommandSender
 import org.bukkit.plugin.Plugin
@@ -44,20 +45,9 @@ class CommandManager {
     }
 
     private fun formatCommand(command: CommandAPICommand): String {
-        return "<dark_gray>/hy <gray>${command.name} <reset>${command.arguments.joinToString(" ") {
-            run {
-                return@joinToString when (it.argumentType) {
-                    CommandAPIArgumentType.PRIMITIVE_STRING -> "<#34abeb>"
-                    CommandAPIArgumentType.PRIMITIVE_GREEDY_STRING -> "<#2f90c4>"
-                    CommandAPIArgumentType.PRIMITIVE_INTEGER -> "<#ebc934>"
-                    CommandAPIArgumentType.PRIMITIVE_FLOAT -> "<#c7a43c>"
-                    CommandAPIArgumentType.PRIMITIVE_DOUBLE -> "<#c7923c>"
-                    CommandAPIArgumentType.PRIMITIVE_LONG -> "<#c7743c>"
-                    CommandAPIArgumentType.PRIMITIVE_BOOLEAN -> "<#c73c5a>"
-                    CommandAPIArgumentType.LITERAL -> "<gray>"
-                    else -> "<#8f2856>"
-                } + it.nodeName
-            }
-        }} <dark_gray>» <gray>${command.fullDescription}"
+        return "<dark_gray>/hy <gray>${command.name}${
+            if (command.arguments.size > 0) " " + formatCommandArguments(command)
+            else ""
+        } <dark_gray>» <gray>${command.fullDescription}"
     }
 }
