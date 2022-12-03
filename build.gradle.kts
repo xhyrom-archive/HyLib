@@ -76,3 +76,8 @@ java {
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "17"
 }
+
+artifacts {
+    archives(tasks.getByName("shadowJar"))
+    archives(tasks.getByName("buildApi"))
+}
