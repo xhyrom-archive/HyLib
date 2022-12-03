@@ -40,8 +40,39 @@ class CommandManager {
         return raw.subcommands
     }
 
+    /**
+     * Create main command for plugin
+     * * This function will generate automatically a help command
+     *
+     * For subcommands, use raw CommandAPICommand from CommandAPI lib
+     */
     fun createCommand(name: String): CommandAPICommand {
-        return CommandAPICommand(name)
+        var command: CommandAPICommand? = null
+        command = CommandAPICommand(name)
+            .executes(
+                CommandExecutor { sender: CommandSender, _: Array<Any?> ->
+                    run {
+                        sender.sendMessage(
+                            MiniMessage.miniMessage().deserialize(
+                                "<gradient:#2fa4c4:#2fbfc4:#2fc4a9>Hy${name[0].uppercase() + name.substring(1)}</gradient> <dark_gray>| <gray>Available commands"
+                            )
+                        )
+
+                        for (subcommand in command!!.subcommands) {
+                            sender.sendMessage(
+                                MiniMessage.miniMessage().deserialize(
+                                    "<dark_gray>/hy $name <gray>${subcommand.name}${
+                                        if (subcommand.arguments.size > 0) " " + formatCommandArguments(subcommand)
+                                        else ""
+                                    } <dark_gray>» <gray>${subcommand.fullDescription}"
+                                )
+                            )
+                        }
+                    }
+                }
+            )
+
+        return command
     }
 
     private fun formatCommand(command: CommandAPICommand): String {
