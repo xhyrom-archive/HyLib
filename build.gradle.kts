@@ -28,12 +28,6 @@ dependencies {
     implementation("dev.dejvokep:boosted-yaml:1.3")
     implementation("com.github.retrooper.packetevents:spigot:2.0.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.0.0")
-
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 tasks.withType<ShadowJar> {
@@ -48,6 +42,8 @@ tasks.withType<ShadowJar> {
 }
 
 tasks.register<ShadowJar>("buildApi") {
+    mustRunAfter("jar")
+
     from(sourceSets.main.get().output)
     configurations = listOf(project.configurations.runtimeClasspath.get())
 
@@ -61,10 +57,12 @@ tasks.register<ShadowJar>("buildApi") {
     exclude("LICENSE")
     exclude("kotlin/**")
 
-    archiveFileName.set("${project.name}-${project.version}-api.jar")
+    archiveFileName.set("${project.name}-${project.version}.jar")
 }
 
-tasks.named("build") { finalizedBy("buildApi") }
+tasks.build {
+    dependsOn(tasks.getByName("shadowJar"), tasks.getByName("buildApi"))
+}
 
 application {
     mainClass.set("me.xhyrom.hylib.HyLibPlugin")
