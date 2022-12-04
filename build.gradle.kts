@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("java-library")
     id("java")
-    id("hylib.base-logic")
     kotlin("jvm") version "1.6.21"
 }
 
@@ -38,6 +37,6 @@ tasks.withType<KotlinCompile> {
 }
 
 java {
-    javaTarget(17)
+    toolchain.languageVersion.set(JavaLanguageVersion.of("17"))
     withSourcesJar()
 }
