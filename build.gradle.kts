@@ -30,6 +30,10 @@ subprojects {
         maven("https://repo.codemc.io/repository/maven-snapshots/")
         maven("https://oss.sonatype.org/content/groups/public/")
     }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "17"
+    }
 }
 
 tasks.withType<KotlinCompile> {
