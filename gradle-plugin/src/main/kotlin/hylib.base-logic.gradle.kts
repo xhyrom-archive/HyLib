@@ -45,5 +45,9 @@ publishing {
         groupId = rootProject.group as String
         artifactId = project.name
         version = rootProject.version as String
+
+        pom {
+            name.set("HyLib")
+        }
     }
 }

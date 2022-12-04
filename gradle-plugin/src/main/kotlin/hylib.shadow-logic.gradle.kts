@@ -10,7 +10,6 @@ tasks {
         archiveClassifier.set("unshaded")
     }
     val shadowJar = named<ShadowJar>("shadowJar") {
-        archiveClassifier.set("")
         configureRelocations()
     }
     val shadowJarApi = register<ShadowJar>("shadowJarApi") {

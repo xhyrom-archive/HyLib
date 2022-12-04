@@ -1,9 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("java-library")
     id("java")
-    id("maven-publish")
+    id("java-library")
     kotlin("jvm") version "1.6.21"
 }
 
@@ -40,13 +39,4 @@ tasks.withType<KotlinCompile> {
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of("17"))
     withSourcesJar()
-}
-
-// Jitpack
-publishing {
-    publications {
-        create<MavenPublication>("HyLib-Bukkit") {
-            artifactId = "HyLib-Bukkit"
-        }
-    }
 }
