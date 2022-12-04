@@ -42,12 +42,9 @@ tasks.register("javadocJar", Jar::class) {
 
 publishing {
     publications.create<MavenPublication>("mavenJava") {
-        groupId = if ((rootProject.group as String).isNotEmpty()) rootProject.group as String else "me.xhyrom.hylib"
+        groupId = project.group as String
         artifactId = project.name
-        version = rootProject.version as String
-
-        pom {
-            name.set("HyLib")
-        }
+        version = project.version as String
+        from(components["java"])
     }
 }
