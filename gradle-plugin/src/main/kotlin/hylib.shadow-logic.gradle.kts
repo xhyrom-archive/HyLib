@@ -14,14 +14,11 @@ tasks {
         configureRelocations()
     }
     val shadowJarApi = register<ShadowJar>("shadowJarApi") {
-        mustRunAfter("jar")
-
         from(sourceSets.main.get().output)
         configurations = listOf(project.configurations.runtimeClasspath.get())
 
         exclude("kotlin/**")
 
-        archiveClassifier.set("")
         configureRelocations()
     }
     named("build") {

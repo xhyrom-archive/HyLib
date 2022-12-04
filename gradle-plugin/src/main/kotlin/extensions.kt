@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.named
 
 fun Project.publishShadowJar() {
     configurePublication {
-        artifact(tasks["shadowJar"])
+        artifact(tasks["shadowJarApi"])
         artifact(tasks["javadocJar"])
     }
 }
