@@ -42,7 +42,6 @@ tasks.register("javadocJar", Jar::class) {
 
 publishing {
     publications.create<MavenPublication>("mavenJava") {
-        println(rootProject.group as String)
         groupId = rootProject.group as String
         artifactId = project.name
         version = rootProject.version as String
