@@ -12,6 +12,7 @@ plugins {
 
 group = "me.xhyrom.hylib"
 version = "0.1.1"
+description = "A powerful library for paper plugins."
 
 repositories {
     mavenCentral()
@@ -39,6 +40,8 @@ tasks.withType<ShadowJar> {
     relocate("io.github.retrooper.packetevents", "me.xhyrom.hylib.libs.packetevents.impl")
 
     exclude("LICENSE")
+
+    archiveFileName.set("${project.name}-${project.version}-plugin.jar")
 }
 
 tasks.register<ShadowJar>("buildApi") {
@@ -62,6 +65,18 @@ tasks.register<ShadowJar>("buildApi") {
 
 tasks.build {
     dependsOn(tasks.getByName("shadowJar"), tasks.getByName("buildApi"))
+}
+
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from(sourceSets.main.get().resources.srcDirs) {
+        filter(
+            org.apache.tools.ant.filters.ReplaceTokens::class, "tokens" to mapOf(
+            "name" to project.name,
+            "version" to project.version,
+            "description" to project.description,
+        ))
+    }
 }
 
 application {

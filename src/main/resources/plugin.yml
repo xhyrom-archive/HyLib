@@ -1,5 +1,6 @@
-name: HyLib
-version: 0.1.1
+name: @name@
+description: @description@
+version: @version@
 main: me.xhyrom.hylib.HyLibPlugin
 author: xHyroM#2815
 api-version: 1.19
