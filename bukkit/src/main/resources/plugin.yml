@@ -1,0 +1,6 @@
+name: ${name}
+description: ${description}
+version: ${version}
+main: me.xhyrom.hylib.bukkit.implementation.HyLibBukkit
+author: ${author}
+api-version: 1.13
