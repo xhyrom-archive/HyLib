@@ -7,10 +7,10 @@
 <h4 align="center">Source code for HyLib, a paper plugin and powerful library.</h4>
 
 <p align="center">
-    <a href="https://bstats.org/plugin/bukkit/HyChat" alt="bstats servers">
+    <a href="https://bstats.org/plugin/bukkit/HyLib" alt="bstats servers">
         <img src="https://img.shields.io/bstats/servers/16983?color=2fbfc4&style=for-the-badge" />
     </a>
-    <a href="https://bstats.org/plugin/bukkit/EcoPets" alt="bstats players">
+    <a href="https://bstats.org/plugin/bukkit/HyLib" alt="bstats players">
         <img src="https://img.shields.io/bstats/players/16983?color=2fbfc4&style=for-the-badge" />
     </a>
     <a href="https://discord.gg/kFPKmEKeMS/" alt="Discord">
