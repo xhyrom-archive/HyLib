@@ -23,3 +23,44 @@
   [![Docs](https://github.com/xHyroM/HyLib/blob/main/images/graphic.png?raw=true)](https://discord.gg/kFPKmEKeMS/)
 
 </div>
+
+<br />
+
+<h1>
+  Developers
+</h1>
+
+```yml
+depend:
+  - hylib-{platform}
+```
+
+### Get jar from repository  
+_Gradle:_
+```kt
+repositories {
+  maven("https://repo.jopga.me/releases")
+}
+
+dependencies {
+  compileOnly("me.xhyrom.hylib:hylib-PLATFORM:VERSION")
+}
+```
+
+_Maven:_  
+```xml
+<repository>
+  <id>jopgamer-repo-releases</id>
+  <name>Hyro - Development</name>
+  <url>http://repo.jopga.me/releases</url>
+</repository>
+```
+
+```xml
+<dependency>
+  <groupId>me.xhyrom.hylib</groupId>
+  <artifactId>hylib-PLATFORM</artifactId>
+  <version>VERSION</version>
+  <scope>provided</scope>
+</dependency>
+```
