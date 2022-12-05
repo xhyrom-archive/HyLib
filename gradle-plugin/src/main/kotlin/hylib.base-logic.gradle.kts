@@ -42,6 +42,15 @@ tasks.register("javadocJar", Jar::class) {
 
 publishing {
     publications.create<MavenPublication>("mavenJava") {
+        repositories.maven {
+            url = uri("https://repo.jopga.me/releases")
+
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+
         groupId = rootProject.group as String
         artifactId = project.name
         version = rootProject.version as String
