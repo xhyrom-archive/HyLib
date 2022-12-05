@@ -6,7 +6,7 @@ plugins {
 
 tasks {
     shadowJar {
-        archiveFileName.set("HyLib-${project.name.substringAfter("hylib-").capitalize()}-${project.version}-plugin.jar")
+        archiveFileName.set("HyLib-${project.name.substringAfter("hylib-").capitalize()}-${project.version}-all.jar")
         destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
     }
     named<ShadowJar>("shadowJarApi") {
