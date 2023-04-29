@@ -1,7 +1,7 @@
 package me.xhyrom.hylib.bukkit.implementation
 
 import dev.jorel.commandapi.CommandAPI
-import dev.jorel.commandapi.CommandAPIConfig
+import dev.jorel.commandapi.CommandAPIBukkitConfig
 import me.xhyrom.hylib.bukkit.implementation.managers.BStatsManagerImpl
 import me.xhyrom.hylib.bukkit.implementation.managers.CommandManagerImpl
 import me.xhyrom.hylib.bukkit.implementation.managers.UtilsManagerImpl
@@ -19,7 +19,7 @@ class HyLibBukkit : HyLib, JavaPlugin() {
     private var commandManager: CommandManager? = null
 
     override fun onEnable() {
-        CommandAPI.onEnable(this)
+        CommandAPI.onEnable()
 
         bStatsManager = BStatsManagerImpl(this)
         configManager = ConfigManagerImpl()
@@ -30,7 +30,11 @@ class HyLibBukkit : HyLib, JavaPlugin() {
     }
 
     override fun onLoad() {
-        CommandAPI.onLoad(CommandAPIConfig().silentLogs(true))
+        CommandAPI.onLoad(CommandAPIBukkitConfig(this).silentLogs(true))
+    }
+
+    override fun onDisable() {
+        CommandAPI.onDisable()
     }
 
     override fun getBStatsManager(): BStatsManager {

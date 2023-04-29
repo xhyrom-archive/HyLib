@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "me.xhyrom.hylib"
-version = "1.2.3"
+version = "1.2.4"
 description = "A powerful library for paper plugins."
 
 repositories {
