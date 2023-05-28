@@ -1,6 +1,7 @@
 package me.xhyrom.hylib.bukkit.implementation.managers
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.executors.CommandArguments
 import dev.jorel.commandapi.executors.CommandExecutor
 import me.xhyrom.hylib.bukkit.api.structs.BukkitCommand
 import me.xhyrom.hylib.bukkit.implementation.managers.UtilsManagerImpl.formatCommandArguments
@@ -18,7 +19,7 @@ class CommandManagerImpl : CommandManager {
             .withFullDescription("Command for plugins powered by HyLib")
             .withPermission("hy.admin")
             .executes(
-                CommandExecutor { sender: CommandSender, _: Array<Any?>? ->
+                CommandExecutor { sender: CommandSender, _: CommandArguments ->
                     run {
                         sender.sendMessage(
                             MiniMessage.miniMessage().deserialize(
@@ -52,7 +53,7 @@ class CommandManagerImpl : CommandManager {
         var command: BukkitCommand? = null
         command = BukkitCommand(name)
             .executes(
-                CommandExecutor { sender: CommandSender, _: Array<Any?> ->
+                CommandExecutor { sender: CommandSender, _: CommandArguments ->
                     run {
                         sender.sendMessage(
                             MiniMessage.miniMessage().deserialize(
