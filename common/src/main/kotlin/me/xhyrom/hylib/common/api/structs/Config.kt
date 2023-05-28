@@ -37,4 +37,6 @@ interface Config {
 
     fun save(): Boolean
     fun reload(): Boolean
+
+    fun getRaw(): Any
 }

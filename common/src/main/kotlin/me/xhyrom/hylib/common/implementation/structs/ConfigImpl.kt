@@ -1,7 +1,9 @@
 package me.xhyrom.hylib.common.implementation.structs
 
 import dev.dejvokep.boostedyaml.YamlDocument
+import dev.dejvokep.boostedyaml.block.implementation.Section
 import dev.dejvokep.boostedyaml.dvs.versioning.BasicVersioning
+import dev.dejvokep.boostedyaml.route.Route
 import dev.dejvokep.boostedyaml.settings.dumper.DumperSettings
 import dev.dejvokep.boostedyaml.settings.general.GeneralSettings
 import dev.dejvokep.boostedyaml.settings.loader.LoaderSettings
@@ -24,6 +26,14 @@ class ConfigImpl(path: String, resource: InputStream) : Config {
 
     override fun get(key: String): Optional<Any> {
         return raw.getOptional(key)
+    }
+
+    fun getSection(key: String): Optional<Section> {
+        return raw.getOptionalSection(key)
+    }
+
+    fun getSection(route: Route): Optional<Section> {
+        return raw.getOptionalSection(route)
     }
 
     override fun getString(key: String): Optional<String> {
@@ -122,5 +132,9 @@ class ConfigImpl(path: String, resource: InputStream) : Config {
             e.printStackTrace()
             false
         }
+    }
+
+    override fun getRaw(): YamlDocument {
+        return raw
     }
 }
