@@ -101,7 +101,6 @@ class ConfigImpl(path: String, resource: InputStream) : Config {
     }
 
     override fun getShortList(key: String): Optional<List<Short>> {
-        raw.get
         return raw.getOptionalShortList(key)
     }
 
