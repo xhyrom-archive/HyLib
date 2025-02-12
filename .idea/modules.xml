@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bukkit/hylib-parent.hylib-bukkit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bukkit/hylib-parent.hylib-bukkit.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bukkit/hylib-parent.hylib-bukkit.test.iml" filepath="$PROJECT_DIR$/.idea/modules/bukkit/hylib-parent.hylib-bukkit.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bukkit/me.xhyrom.hylib.hylib-parent.hylib-bukkit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bukkit/me.xhyrom.hylib.hylib-parent.hylib-bukkit.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bukkit/me.xhyrom.hylib.hylib-parent.hylib-bukkit.test.iml" filepath="$PROJECT_DIR$/.idea/modules/bukkit/me.xhyrom.hylib.hylib-parent.hylib-bukkit.test.iml" />
     </modules>
   </component>
 </project>

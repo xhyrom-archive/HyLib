@@ -7,10 +7,11 @@ plugins {
 }
 
 group = "me.xhyrom.hylib"
-version = "2.0.2"
+version = "2.0.3"
 description = "A powerful library for paper plugins."
 
 repositories {
+
     mavenCentral()
 }
 
