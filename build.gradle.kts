@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("java")
     id("java-library")
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "2.1.20-Beta2"
 }
 
 group = "me.xhyrom.hylib"
